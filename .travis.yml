@@ -2,5 +2,9 @@ language: haxe
 haxe:
     - "3.2.0"
 neko: "2.0.0"
+
+install:
+    - haxelib install lime
+
 script:
-    - haxelib run lime build "project.xml" html5 -debug -Dfdb
+    - haxelib run lime build "Engineering/project.xml" html5 -debug -Dfdb
