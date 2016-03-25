@@ -2,8 +2,5 @@ language: haxe
 haxe:
     - "3.2.0"
 neko: "2.0.0"
-hxml:
-    - Engineering/bin/html5/haxe/release.hxml
 script:
     - run lime build "project.xml" html5 -debug -Dfdb
-    - 
