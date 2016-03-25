@@ -3,5 +3,5 @@ neko: "2.0.0"
 haxe:
     - "3.2.0"
     - development
-    
-    
+hxml:
+    - Engineering/bin/html5/haxe/release.hxml
