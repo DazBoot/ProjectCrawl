@@ -5,6 +5,7 @@ neko: "2.0.0"
 
 install:
     - haxelib install lime
+    - haxelib install openfl
 
 script:
     - haxelib run lime build "Engineering/project.xml" html5 -debug -Dfdb
