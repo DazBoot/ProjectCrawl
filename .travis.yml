@@ -3,4 +3,4 @@ haxe:
     - "3.2.0"
 neko: "2.0.0"
 script:
-    - run lime build "project.xml" html5 -debug -Dfdb
+    - haxelib run lime build "project.xml" html5 -debug -Dfdb
