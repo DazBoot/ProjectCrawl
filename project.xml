@@ -3,13 +3,13 @@
 	<!-- NMML reference: https://gist.github.com/1763850 -->
 	
 	<!-- metadata, make sure 'package' is at least 3 segments (ie. com.mycompany.myproject) -->
-	<meta title="Engineering" package="game.Engineering" version="1.0.0" company="Josh Elliott" />
+	<meta title="Crawl" package="game.Engineering" version="1.0.0" company="AbstractStudios" />
 	
 	<!-- output -->
 	<app main="game.Main" file="Engineering" path="bin" />
 	
-	<window background="#000000" fps="60" />
-	<window width="800" height="480" unless="mobile" />
+	<window background="#7777777" fps="60" />
+	<window width="1024" height="768" unless="mobile" />
 	<window orientation="landscape" vsync="false" antialiasing="0" if="cpp" />
 	
 	<!-- classpath, haxe libs -->
@@ -19,7 +19,7 @@
 	
 	<!-- assets -->
 	<icon path="assets/openfl.svg" />
-	<!--assets path="assets/img" rename="img" />
+	<assets path="assets/2d" rename="2d" />
 	
 	<!-- optimize output
 	<haxeflag name="-dce full" /> -->

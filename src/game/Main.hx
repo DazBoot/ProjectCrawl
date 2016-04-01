@@ -1,7 +1,8 @@
 package game;
 
-import openfl.display.Sprite;
+import game.dungeon.tile.SimpleTile;
 import openfl.Lib;
+import openfl.display.Sprite;
 
 /**
  * ...
@@ -16,6 +17,8 @@ class Main extends Sprite
 		
 		// Assets:
 		// openfl.Assets.getBitmapData("img/assetname.jpg");
+		
+		Lib.current.stage.addChild( new SimpleTile().displayObject );
 	}
 
 }
