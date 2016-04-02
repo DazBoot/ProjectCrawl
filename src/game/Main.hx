@@ -1,6 +1,6 @@
 package game;
 
-import game.dungeon.SimpleMap;
+import game.dungeon.map.SimpleMap;
 import openfl.Lib;
 import openfl.display.Sprite;
 

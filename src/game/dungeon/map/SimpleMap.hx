@@ -1,4 +1,4 @@
-package game.dungeon;
+package game.dungeon.map;
 
 import core.debug.log.Logger;
 import game.dungeon.map.IMap;
@@ -22,7 +22,10 @@ class SimpleMap implements IMap
 	{
 		init();
 		
-		addTile( 1, 1, new SimpleTile() );
+		addTile( 0, 0, new SimpleTile() );
+		addTile( 0, 1, new SimpleTile() );
+		addTile( 0, 2, new SimpleTile() );
+		addTile( 1, 0, new SimpleTile() );
 		addTile( 1, 1, new SimpleTile() );
 	}
 	
@@ -30,6 +33,8 @@ class SimpleMap implements IMap
 	{
 		m_tileMap = new StringMap<ITile>();
 		m_asset = new Sprite();
+		m_asset.x = 400;
+		m_asset.y = 50;
 	}
 	
 	private function addTile( xPos:Int, yPos:Int, tile:ITile ):Void
@@ -42,8 +47,8 @@ class SimpleMap implements IMap
 		}
 		
 		//Set the pos vars before we update the tile position
-		//tile.xPos = xPos;
-		//tile.yPos = yPos;
+		tile.xPos = xPos;
+		tile.yPos = yPos;
 		
 		m_asset.addChild( tile.displayObject );
 		updateTilePosition( tile );
@@ -59,6 +64,12 @@ class SimpleMap implements IMap
 		//TODO: Get the calculation to translate pos to world coordinate
 		//tile.worldX = tile.xPos;
 		//tile.worldY = tile.yPos;
+		
+		var tileHalfWidth:Float = tile.displayObject.width / 2;
+		var tileHalfHeight:Float = tile.displayObject.height / 2;
+		
+		tile.displayObject.x = ( -tile.yPos + ( tile.xPos ) ) * tileHalfHeight;
+		tile.displayObject.y = ( tile.yPos * tileHalfHeight ) / 2 + ( tile.xPos / 2 ) * tileHalfHeight;
 	}
 	
 	private function get_displayObject( ):DisplayObject

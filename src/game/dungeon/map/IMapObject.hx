@@ -1,4 +1,4 @@
-package game.dungeon;
+package game.dungeon.map;
 
 interface IMapObject 
 {
