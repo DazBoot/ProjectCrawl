@@ -22,11 +22,12 @@ class SimpleMap implements IMap
 	{
 		init();
 		
-		addTile( 0, 0, new SimpleTile() );
-		addTile( 0, 1, new SimpleTile() );
-		addTile( 0, 2, new SimpleTile() );
-		addTile( 1, 0, new SimpleTile() );
-		addTile( 1, 1, new SimpleTile() );
+		addTile( 0, 0, 0, new SimpleTile() );
+		addTile( 0, 1, 0, new SimpleTile() );
+		addTile( 0, 2, 0, new SimpleTile() );
+		addTile( 1, 0, 0, new SimpleTile() );
+		addTile( 1, 1, 0, new SimpleTile() );
+		addTile( 0, 0, 1, new SimpleTile() );
 	}
 	
 	private function init():Void
@@ -37,9 +38,9 @@ class SimpleMap implements IMap
 		m_asset.y = 50;
 	}
 	
-	private function addTile( xPos:Int, yPos:Int, tile:ITile ):Void
+	private function addTile( xPos:Int, yPos:Int, zPos:Int, tile:ITile ):Void
 	{
-		var key:String = '($xPos, $yPos)';
+		var key:String = '($xPos, $yPos, $zPos)';
 		if ( m_tileMap.exists( key ) )
 		{
 			Logger.log( 'Map already has a tile with coordinate $key' );
@@ -49,6 +50,7 @@ class SimpleMap implements IMap
 		//Set the pos vars before we update the tile position
 		tile.xPos = xPos;
 		tile.yPos = yPos;
+		tile.zPos = zPos;
 		
 		m_asset.addChild( tile.displayObject );
 		updateTilePosition( tile );
@@ -68,8 +70,11 @@ class SimpleMap implements IMap
 		var tileHalfWidth:Float = tile.displayObject.width / 2;
 		var tileHalfHeight:Float = tile.displayObject.height / 2;
 		
+		//TODO: Clean this math up!
 		tile.displayObject.x = ( -tile.yPos + ( tile.xPos ) ) * tileHalfHeight;
 		tile.displayObject.y = ( tile.yPos * tileHalfHeight ) / 2 + ( tile.xPos / 2 ) * tileHalfHeight;
+		//Slide up to account for Z
+		tile.displayObject.y -= tile.zPos * tileHalfHeight;
 	}
 	
 	private function get_displayObject( ):DisplayObject

@@ -11,4 +11,7 @@ interface ITile extends IMapObject
 	
 	@:allow( game.dungeon.map.IMap )
 	public var yPos( default, null ):Int;
+	
+	@:allow( game.dungeon.map.IMap )
+	public var zPos( default, null ):Int;
 }

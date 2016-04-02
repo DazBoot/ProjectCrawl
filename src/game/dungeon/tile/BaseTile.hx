@@ -14,6 +14,7 @@ class BaseTile
 	
 	public var xPos( default, null ):Int;
 	public var yPos( default, null ):Int;
+	public var zPos( default, null ):Int;
 	
 	private var m_worldX:Float;
 	private var m_worldY:Float;
