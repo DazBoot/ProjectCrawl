@@ -2,15 +2,17 @@ package game.dungeon.tile;
 import openfl.display.DisplayObject;
 import openfl.display.Sprite;
 
-@:allow( game.dungeon.map.IMap )
+@:allow( game.dungeon.map.IWorldModel )
 class BaseTile
 {
 	public var displayObject( get, null ):DisplayObject;
+	public var priority( get, null ):Int;
 	
 	public var worldX( get, null ):Float;
 	public var worldY( get, null ):Float;
 	
 	private var m_asset:Sprite;
+	private var m_priority:Int;
 	
 	public var xPos( default, null ):Int;
 	public var yPos( default, null ):Int;
@@ -32,6 +34,11 @@ class BaseTile
 		return m_asset;
 	}
 	
+	private function get_priority( ):Int
+	{
+		return m_priority;
+	}
+	
 	private function get_worldX( ):Float
 	{
 		return m_worldX;
@@ -40,5 +47,10 @@ class BaseTile
 	private function get_worldY( ):Float
 	{
 		return m_worldY;
+	}
+	
+	public function setPriority( priority:Int ):Void
+	{
+		m_priority = priority;
 	}
 }
